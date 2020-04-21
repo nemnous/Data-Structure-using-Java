@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 import com.nemnous.datastructures.exceptions.InvalidArgumentException;
+import com.nemnous.datastructures.interfaces.Mappable;
 
 /**
  *  Using Linear Probing to avoid the collision.
@@ -13,7 +14,7 @@ import com.nemnous.datastructures.exceptions.InvalidArgumentException;
  *  empty index.
  *  @author nemnous.
  */
-public class HashMap<T1, T2> {
+public class HashMap<T1, T2> implements Mappable<T1, T2>{
     private static final int INIT_CAPACITY = 4;
 
     private int size; // number of key-value pairs in the hash table
@@ -69,7 +70,9 @@ public class HashMap<T1, T2> {
      * @throws InvalidArgumentException if key is null
      */
     public boolean contains(T1 key) {
-        if (key == null) throw new InvalidArgumentException("argument to contains() is null");
+        if (key == null) {
+        	throw new InvalidArgumentException("argument to contains() is null");
+        }
         return get(key) != null;
     }
 
@@ -110,7 +113,9 @@ public class HashMap<T1, T2> {
      * @throws InvalidArgumentException if key is null
      */
     public void put(T1 key, T2 val) {
-        if (key == null) throw new InvalidArgumentException("first argument to put() is null");
+        if (key == null) {
+        	throw new InvalidArgumentException("first argument to put() is null");
+        }
 
         if (val == null) {
             delete(key);
@@ -118,7 +123,9 @@ public class HashMap<T1, T2> {
         }
 
         // double table size if 50% full
-        if (size >= tableSize/2) resize(2*tableSize);
+        if (size >= tableSize/2) {
+        	resize(2*tableSize);
+        }
 
         int index;
         for (index = hash(key); keys[index] != null; index = (index + 1) % tableSize) {
@@ -160,15 +167,19 @@ public class HashMap<T1, T2> {
      * @throws InvalidArgumentException if key is null
      */
     public void delete(T1 key) {
-        if (key == null) throw new InvalidArgumentException("argument to delete() is null");
-        if (!contains(key)) return;
+        if (key == null) {
+        	throw new InvalidArgumentException("argument to delete() is null");
+        }
+        
+        if (!contains(key)) {
+        	return;
+        }
 
         // find position index of key
         int index = hash(key);
         while (!key.equals(keys[index])) {
             index = (index + 1) % tableSize;
         }
-
         // delete key and associated value
         keys[index] = null;
         vals[index] = null;
@@ -197,8 +208,7 @@ public class HashMap<T1, T2> {
 
     /**
      * Returns all keys in this hash table as an Iterable.
-     * To iterate over all of the keys in the hash table named {st},
-     * use the for each notation: {for (T1 key : st.keys())}.
+     * To iterate over all of the keys in the hash table.
      *
      * @return all keys in this hash table
      */

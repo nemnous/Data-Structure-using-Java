@@ -3,8 +3,9 @@ package com.nemnous.datastructures;
 import java.util.Arrays;
 
 import com.nemnous.datastructures.exceptions.IndexOutOfBoundsException;
+import com.nemnous.datastructures.interfaces.Listable;
  
-public class ArrayList<T> {
+public class ArrayList<T> implements Listable<T>{
  
     private T[] array;
     private int size = 0;
