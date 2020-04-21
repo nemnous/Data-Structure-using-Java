@@ -2,7 +2,8 @@ package com.nemnous.datastructures.exceptions;
 
 
 /**
- * This exception is thrown when an user enters invalid details.
+ * This exception is thrown when tried to access
+ * the index greater than array size.
  * @author nemnous.
  *
  */

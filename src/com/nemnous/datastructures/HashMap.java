@@ -7,7 +7,7 @@ import com.nemnous.datastructures.exceptions.InvalidArgumentException;
 import com.nemnous.datastructures.interfaces.Mappable;
 
 /**
- *  Using Linear Probing to avoid the collision.
+ *  Using Linear Probing method to avoid the collision.
  *  In linear probing the index is generated to the key using hash function
  *  if the index is empty the value is assigned in the same index.
  *  if not the successive index + 1, index + 2, .... is looked into and sets at

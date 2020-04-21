@@ -1,7 +1,7 @@
 package com.nemnous.datastructures.exceptions;
 
 /**
- * This exception is thrown when an user enters invalid details.
+ * This exception is thrown when an user tried to pop from an empty stack.
  * @author nemnous.
  *
  */

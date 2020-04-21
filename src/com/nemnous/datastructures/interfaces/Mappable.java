@@ -1,5 +1,12 @@
 package com.nemnous.datastructures.interfaces;
 
+
+/**
+ * Interface for HashMap.
+ * @author nemnous
+ *
+ * @param <T> generic
+ */
 public interface Mappable<T1, T2> {
 	public int size();
 	public boolean isEmpty();

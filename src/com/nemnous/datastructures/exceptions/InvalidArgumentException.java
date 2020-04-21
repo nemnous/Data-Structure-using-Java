@@ -1,7 +1,7 @@
 package com.nemnous.datastructures.exceptions;
 
 /**
- * This exception is thrown when an user enters invalid details.
+ * This exception is thrown when an invalid argument like null is passed.
  * @author nemnous.
  *
  */

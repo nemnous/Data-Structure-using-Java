@@ -4,7 +4,12 @@ import java.util.Arrays;
 
 import com.nemnous.datastructures.exceptions.IndexOutOfBoundsException;
 import com.nemnous.datastructures.interfaces.Listable;
- 
+ /**
+  * 
+  * @author nemnous
+  *
+  * @param <T> Generic Type.
+  */
 public class ArrayList<T> implements Listable<T>{
  
     private T[] array;
