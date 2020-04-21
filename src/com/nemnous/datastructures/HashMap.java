@@ -49,6 +49,7 @@ public class HashMap<T1, T2> implements Mappable<T1, T2>{
      *
      * @return 
      */
+    @Override
     public int size() {
         return size;
     }
@@ -58,6 +59,7 @@ public class HashMap<T1, T2> implements Mappable<T1, T2>{
      *
      * @return 
      */
+    @Override
     public boolean isEmpty() {
         return size() == 0;
     }
@@ -69,6 +71,7 @@ public class HashMap<T1, T2> implements Mappable<T1, T2>{
      * @return 
      * @throws InvalidArgumentException if key is null
      */
+    @Override
     public boolean contains(T1 key) {
         if (key == null) {
         	throw new InvalidArgumentException("argument to contains() is null");
@@ -112,6 +115,7 @@ public class HashMap<T1, T2> implements Mappable<T1, T2>{
      * @param  value the value
      * @throws InvalidArgumentException if key is null
      */
+    @Override
     public void put(T1 key, T2 value) {
         if (key == null) {
         	throw new InvalidArgumentException("first argument to put() is null");
@@ -146,6 +150,7 @@ public class HashMap<T1, T2> implements Mappable<T1, T2>{
      *         null if no such value
      * @throws InvalidArgumentException if key is null
      */
+    @Override
     public T2 get(T1 key) {
         if (key == null) {
         	throw new InvalidArgumentException("argument to get() is null");
@@ -166,6 +171,7 @@ public class HashMap<T1, T2> implements Mappable<T1, T2>{
      * @param  key the key
      * @throws InvalidArgumentException if key is null
      */
+    @Override
     public void delete(T1 key) {
         if (key == null) {
         	throw new InvalidArgumentException("argument to delete() is null");
@@ -212,6 +218,7 @@ public class HashMap<T1, T2> implements Mappable<T1, T2>{
      *
      * @return all keys in this hash table
      */
+    @Override
     public Iterable<T1> keys() {
         Queue<T1> queue = new LinkedList<>();
         for (int index = 0; index < tableSize; index++)

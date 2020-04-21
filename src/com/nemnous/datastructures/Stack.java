@@ -127,7 +127,9 @@ public class Stack<T> implements Iterable<T>, Stackable<T>{
         
         @Override
         public T next() {
-            if (!hasNext()) throw new NoSuchElementException();
+            if (!hasNext()) {
+            	throw new NoSuchElementException();
+            }
             T item = current.item;
             current = current.next; 
             return item;

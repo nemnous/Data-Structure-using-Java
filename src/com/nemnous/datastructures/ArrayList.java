@@ -23,6 +23,7 @@ public class ArrayList<T> implements Listable<T>{
      * @param index - of the element you want.
      * @return element present at the index
      */
+    @Override
     public T get(int index){
     	if(index > size) {
     		throw new IndexOutOfBoundsException("Index out of Bounds");
@@ -34,6 +35,7 @@ public class ArrayList<T> implements Listable<T>{
      * Adds the item given to the array.
      * @param item
      */
+    @Override
     public void add(T item){
         if(size > array.length/2){
             resize();
@@ -46,6 +48,7 @@ public class ArrayList<T> implements Listable<T>{
      * @param index
      * @return
      */
+    @Override
     public T remove(int index){
     	if(index > size) {
     		throw new IndexOutOfBoundsException("Index out of Bounds");
@@ -65,6 +68,7 @@ public class ArrayList<T> implements Listable<T>{
      * returns the size of array
      * @return integer,  size of array.
      */
+    @Override
     public int size(){
         return size;
     }
