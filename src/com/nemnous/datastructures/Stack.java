@@ -2,7 +2,7 @@ package com.nemnous.datastructures;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-import com.nemnous.datastructures.exceptions.StackUnderflowException;
+import com.nemnous.datastructures.exceptions.StackUnderFlowException;
 import com.nemnous.datastructures.interfaces.Stackable;
 
 
@@ -69,12 +69,12 @@ public class Stack<T> implements Iterable<T>, Stackable<T>{
      * Removes and returns the item most recently added to this stack.
      *
      * @return the item most recently added
-     * @throws StackUnderflowException if this stack is empty
+     * @throws StackUnderFlowException if this stack is empty
      */
     @Override
     public T pop() {
         if (isEmpty()) {
-        	throw new StackUnderflowException("Stack underflow");
+        	throw new StackUnderFlowException("Stack underflow");
         }
         T item = first.item;        // save item to return
         first = first.next;            // delete first node

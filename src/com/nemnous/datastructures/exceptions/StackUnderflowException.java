@@ -6,7 +6,7 @@ package com.nemnous.datastructures.exceptions;
  *
  */
 @SuppressWarnings("serial")
-public class StackUnderflowException extends RuntimeException {
+public class StackUnderFlowException extends RuntimeException {
 
     private final String message;
 
@@ -14,7 +14,7 @@ public class StackUnderflowException extends RuntimeException {
      * Constructor with message.
      * @param message
      */
-    public StackUnderflowException(final String message) {
+    public StackUnderFlowException(final String message) {
         this.message = message;
     }
 
@@ -23,7 +23,7 @@ public class StackUnderflowException extends RuntimeException {
      * @param cause
      * @param message
      */
-    public StackUnderflowException(final Throwable cause, final String message) {
+    public StackUnderFlowException(final Throwable cause, final String message) {
         super(cause);
         this.message = message;
     }
