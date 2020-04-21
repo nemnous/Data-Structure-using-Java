@@ -9,7 +9,7 @@ public class ArrayList<T> implements Listable<T>{
  
     private T[] array;
     private int size = 0;
-     
+
     /**
      * Constructor to initialize the Array List.
      */

@@ -109,15 +109,15 @@ public class HashMap<T1, T2> implements Mappable<T1, T2>{
      * if the specified value is null.
      *
      * @param  key the key
-     * @param  val the value
+     * @param  value the value
      * @throws InvalidArgumentException if key is null
      */
-    public void put(T1 key, T2 val) {
+    public void put(T1 key, T2 value) {
         if (key == null) {
         	throw new InvalidArgumentException("first argument to put() is null");
         }
 
-        if (val == null) {
+        if (value == null) {
             delete(key);
             return;
         }
@@ -130,12 +130,12 @@ public class HashMap<T1, T2> implements Mappable<T1, T2>{
         int index;
         for (index = hash(key); keys[index] != null; index = (index + 1) % tableSize) {
             if (keys[index].equals(key)) {
-                vals[index] = val;
+                vals[index] = value;
                 return;
             }
         }
         keys[index] = key;
-        vals[index] = val;
+        vals[index] = value;
         size++;
     }
 

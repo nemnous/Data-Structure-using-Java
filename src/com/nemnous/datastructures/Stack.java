@@ -73,7 +73,9 @@ public class Stack<T> implements Iterable<T>, Stackable<T>{
      */
     @Override
     public T pop() {
-        if (isEmpty()) throw new StackUnderflowException("Stack underflow");
+        if (isEmpty()) {
+        	throw new StackUnderflowException("Stack underflow");
+        }
         T item = first.item;        // save item to return
         first = first.next;            // delete first node
         size--;
