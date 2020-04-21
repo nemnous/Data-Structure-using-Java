@@ -89,9 +89,9 @@ public class HashMap<T1, T2> {
     // resizes the hash table to the given capacity by re-hashing all of the keys
     private void resize(int capacity) {
         HashMap<T1, T2> hashtable = new HashMap<>(capacity);
-        for (int i = 0; i < tableSize; i++) {
-            if (keys[i] != null) {
-            	hashtable.put(keys[i], vals[i]);
+        for (int index = 0; index < tableSize; index++) {
+            if (keys[index] != null) {
+            	hashtable.put(keys[index], vals[index]);
             }
         }
         keys = hashtable.keys;
@@ -120,15 +120,15 @@ public class HashMap<T1, T2> {
         // double table size if 50% full
         if (size >= tableSize/2) resize(2*tableSize);
 
-        int i;
-        for (i = hash(key); keys[i] != null; i = (i + 1) % tableSize) {
-            if (keys[i].equals(key)) {
-                vals[i] = val;
+        int index;
+        for (index = hash(key); keys[index] != null; index = (index + 1) % tableSize) {
+            if (keys[index].equals(key)) {
+                vals[index] = val;
                 return;
             }
         }
-        keys[i] = key;
-        vals[i] = val;
+        keys[index] = key;
+        vals[index] = val;
         size++;
     }
 
@@ -140,10 +140,15 @@ public class HashMap<T1, T2> {
      * @throws InvalidArgumentException if key is null
      */
     public T2 get(T1 key) {
-        if (key == null) throw new InvalidArgumentException("argument to get() is null");
-        for (int i = hash(key); keys[i] != null; i = (i + 1) % tableSize)
-            if (keys[i].equals(key))
-                return vals[i];
+        if (key == null) {
+        	throw new InvalidArgumentException("argument to get() is null");
+        }
+        
+        for (int index = hash(key); keys[index] != null; index = (index + 1) % tableSize) {
+            if (keys[index].equals(key)) {
+                return vals[index];	
+            }
+        }
         return null;
     }
 
@@ -158,27 +163,27 @@ public class HashMap<T1, T2> {
         if (key == null) throw new InvalidArgumentException("argument to delete() is null");
         if (!contains(key)) return;
 
-        // find position i of key
-        int i = hash(key);
-        while (!key.equals(keys[i])) {
-            i = (i + 1) % tableSize;
+        // find position index of key
+        int index = hash(key);
+        while (!key.equals(keys[index])) {
+            index = (index + 1) % tableSize;
         }
 
         // delete key and associated value
-        keys[i] = null;
-        vals[i] = null;
+        keys[index] = null;
+        vals[index] = null;
 
         // rehash all keys
-        i = (i + 1) % tableSize;
-        while (keys[i] != null) {
-            // delete keys[i] an vals[i] and reinsert
-            T1   keyToRehash = keys[i];
-            T2 valToRehash = vals[i];
-            keys[i] = null;
-            vals[i] = null;
+        index = (index + 1) % tableSize;
+        while (keys[index] != null) {
+            // delete keys[index] an vals[index] and reinsert
+            T1   keyToRehash = keys[index];
+            T2 valToRehash = vals[index];
+            keys[index] = null;
+            vals[index] = null;
             size--;
             put(keyToRehash, valToRehash);
-            i = (i + 1) % tableSize;
+            index = (index + 1) % tableSize;
         }
 
         size--;
@@ -199,9 +204,9 @@ public class HashMap<T1, T2> {
      */
     public Iterable<T1> keys() {
         Queue<T1> queue = new LinkedList<>();
-        for (int i = 0; i < tableSize; i++)
-            if (keys[i] != null) {
-            	queue.add(keys[i]);
+        for (int index = 0; index < tableSize; index++)
+            if (keys[index] != null) {
+            	queue.add(keys[index]);
             }
         return queue;
     }

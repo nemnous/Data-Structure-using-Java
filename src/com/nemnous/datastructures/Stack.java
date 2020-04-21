@@ -82,17 +82,6 @@ public class Stack<T> implements Iterable<T>, Stackable<T>{
 
 
     /**
-     * Returns (but does not remove) the item most recently added to this stack.
-     *
-     * @return the item most recently added to this stack
-     * @throws StackUnderflowException if this stack is empty
-     */
-    public T peek() {
-        if (isEmpty()) throw new StackUnderflowException("Stack underflow");
-        return first.item;
-    }
-
-    /**
      * Returns a string representation of this stack.
      *
      * @return elements of stack separated by space.
